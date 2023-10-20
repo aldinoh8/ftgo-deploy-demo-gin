@@ -23,7 +23,8 @@ func main() {
 	todos.POST("", mainController.Create)
 	todos.GET("", mainController.FindAll)
 
-	if err := app.Run(":8080"); err != nil {
+	PORT := ":" + os.Getenv("PORT")
+	if err := app.Run(PORT); err != nil {
 		log.Fatal(err.Error())
 	}
 }
